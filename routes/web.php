@@ -15,7 +15,7 @@ use App\Http\Controllers\CensusRecordController;
 |
 */
 
-Route::get('/', [ViewController::class, 'landing']);
+Route::get('/landing', [ViewController::class, 'landing']);
 
 Route::get('/admin', [ViewController::class, 'home']);
 

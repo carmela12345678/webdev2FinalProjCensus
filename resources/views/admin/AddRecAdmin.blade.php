@@ -1,6 +1,6 @@
-@extends('layout/layout')
+@extends('layouts.app')
 
-@section('body')
+@section('content')
 
     <div style="background:#44CCFF; border: 1px solid black;">
     <h1>New Census Records</h1>

@@ -15,7 +15,7 @@ class CreateCensusRecordsTable extends Migration
     {
         Schema::create('census_records', function (Blueprint $table) {
             $table->id();
-            $table->integer('record_no');
+            $table->foreignId('record_id');
             $table->string('firstname',32);
             $table->string('lastname',32);
             $table->integer('age');
