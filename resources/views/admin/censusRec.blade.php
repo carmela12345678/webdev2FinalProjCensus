@@ -1,0 +1,1 @@
+walay sud sa wireframe
