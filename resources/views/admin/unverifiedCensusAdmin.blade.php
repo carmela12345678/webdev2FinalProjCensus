@@ -13,6 +13,16 @@
                         <input type="submit" name='searchUnverified'>
                     </form>
                 </div>
+                <div class="table-responsive" style="margin-right:20px; margin-left:20px;">
+                    <table class="table table-striped">
+                        <thead class="thead-dark">
+                            <tr>
+                            <td scope="col">Record Id</td>
+                            <td scope="col">Family Name</td>
+                            <td scope="col">Address</td>
+                            </tr>
+                        </thead>
+                        <tbody>
 
                     <div class="card-body">
                         @if (session('status'))
@@ -37,10 +47,12 @@
                         </ul>
                         @endif
                     </div>
+                    </tbody>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
 </div>
 
