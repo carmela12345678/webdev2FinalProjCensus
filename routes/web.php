@@ -20,12 +20,11 @@ Route::get('/landing', [ViewController::class, 'landing']);
 Route::get('/admin', [ViewController::class, 'home']);
 
 Route::post('census-delete', [CensusRecordController::class, 'destroy']);
+Route::post('new-rec', [CensusRecordController::class, 'store']);
 
 Route::resource('/censusRecord', CensusRecordController::class);
 
-Route::get('/user', function () {
-    return view('user/welcomeUser');
-});
+Route::get('/user', [ViewController::class, 'userLanding']);
 
 Route::get('/AddRecAdmin', function () {
     return view('admin/AddRecAdmin');

@@ -25,6 +25,7 @@ class CreateCensusRecordsTable extends Migration
             $table->date('birth_date');
             $table->text('education');
             $table->enum('role', ['Head','Member']);
+            $table->integer('sourceOfIncome');
             $table->timestamps();
         });
     }

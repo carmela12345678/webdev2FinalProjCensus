@@ -38,6 +38,34 @@ class CensusRecordController extends Controller
     public function store(Request $request)
     {
         //
+        $fname = $request->input('fname');
+        $lname = $request->input('lname');
+        $age = $request->input('age');
+        //$gender = $request->input('gender');
+       // $status = $request->input('status');
+       $add = $request->input('add');
+       $dateOfBirth = $request->input('dateOfBirth');
+       $educational = $request->input('educational');
+       $role = $request->input('role');
+       $sourceOfIncome = $request->input('sourceOfIncome');
+       
+
+       $censusRec = new CensusRecord;
+       //$censusRec->foreign
+       $censusRec->firstname =$fname;
+       $censusRec->lastname =$lname;
+       $censusRec->age =$age;
+       $censusRec->gender =$gender;
+       $censusRec->civil_status =$status;
+       $censusRec->address =$add;
+       $censusRec->birth_date =$dateOfBirth;
+       $censusRec->education =$educational;
+       $censusRec->role =$role;
+       $censusRec->sourceOfIncome =$sourceOfIncome;
+
+       $censusRec->save();
+
+       return redirect('AddRecAdmin');
     }
 
     /**
