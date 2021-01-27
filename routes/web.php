@@ -26,25 +26,25 @@ Route::resource('/censusRecord', CensusRecordController::class);
 
 Route::get('/user', [ViewController::class, 'userLanding']);
 
-Route::get('/AddRecAdmin', function () {
-    return view('admin/AddRecAdmin');
-});
+// Route::get('/AddRecAdmin', function () {
+//     return view('admin/AddRecAdmin');
+// });
 
 Route::get('/censusRec', function () {
     return view('admin/censusRec');
 });
 
-Route::get('/users', function () {
-    return view('admin/users');
-});
+// Route::get('/users', function () {
+//     return view('admin/users');
+// });
 
-Route::get('/viewCensusAdmin', function () {
-    return view('admin/viewCensusAdmin');
-});
+// Route::get('/viewCensusAdmin', function () {
+//     return view('admin/viewCensusAdmin');
+// });
 
-Route::get('/unverifiedCensusAdmin', function () {
-    return view('admin/unverifiedCensusAdmin');
-});
+// Route::get('/unverifiedCensusAdmin', function () {
+//     return view('admin/unverifiedCensusAdmin');
+// });
 
 Route::get('/addAccount', function () {
     return view('admin/addAccount');
@@ -64,3 +64,7 @@ Route::get('/unverifiedUser', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/AddRecAdmin', [App\Http\Controllers\HomeController::class, 'addRecAdmin'])->name('AddRecAdmin');
+Route::get('/unverifiedCensusAdmin', [App\Http\Controllers\HomeController::class, 'unverifiedCensusAdmin'])->name('unverifiedCensusAdmin');
+Route::get('/userAccounts', [App\Http\Controllers\HomeController::class, 'users'])->name('UserAccounts');
+Route::get('/viewCensusAdmin', [App\Http\Controllers\HomeController::class, 'viewCensusAdmin'])->name('ViewCensusAdmin');

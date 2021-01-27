@@ -25,4 +25,25 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    public function addRecAdmin()
+    {
+        return view('admin/AddRecAdmin');
+    }
+
+    public function users()
+    {
+        return view('admin/users');
+    }
+
+    public function viewCensusAdmin()
+    {
+        return view('admin/viewCensusAdmin');
+    }
+
+    public function unverifiedCensusAdmin()
+    {
+        return view('admin/unverifiedCensusAdmin');
+    }
+
 }

@@ -1,6 +1,6 @@
-@extends('layout/layout')
+@extends('layouts.app')
 
-@section('body')
+@section('content')
     <div>
     <h3>Verified Data</h3>
     <form action="searchVerified" method='GET'>
