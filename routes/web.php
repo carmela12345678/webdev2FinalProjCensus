@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ViewController;
 use App\Http\Controllers\CensusRecordController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,9 +19,6 @@ use App\Http\Controllers\CensusRecordController;
 Route::get('/landing', [ViewController::class, 'landing']);
 
 Route::get('/admin', [ViewController::class, 'home']);
-
-Route::post('census-delete', [CensusRecordController::class, 'destroy']);
-Route::post('new-rec', [CensusRecordController::class, 'store']);
 
 Route::resource('/censusRecord', CensusRecordController::class);
 
@@ -61,10 +59,16 @@ Route::get('/censusRecUser', function () {
 Route::get('/unverifiedUser', function () {
     return view('user/unverifiedUser');
 });
+
+
+Route::post('new-rec', [CensusRecordController::class, 'store']);
+Route::get('/display', [CensusRecordController::class, 'index']);
+Route::post('census-delete', [CensusRecordController::class, 'destroy']);
+
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/AddRecAdmin', [App\Http\Controllers\HomeController::class, 'addRecAdmin'])->name('AddRecAdmin');
-Route::get('/unverifiedCensusAdmin', [App\Http\Controllers\HomeController::class, 'unverifiedCensusAdmin'])->name('unverifiedCensusAdmin');
-Route::get('/userAccounts', [App\Http\Controllers\HomeController::class, 'users'])->name('UserAccounts');
-Route::get('/viewCensusAdmin', [App\Http\Controllers\HomeController::class, 'viewCensusAdmin'])->name('ViewCensusAdmin');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/AddRecAdmin', [HomeController::class, 'addRecAdmin'])->name('AddRecAdmin');
+Route::get('/unverifiedCensusAdmin', [HomeController::class, 'unverifiedCensusAdmin'])->name('unverifiedCensusAdmin');
+Route::get('/userAccounts', [HomeController::class, 'users'])->name('UserAccounts');
+Route::get('/viewCensusAdmin', [HomeController::class, 'viewCensusAdmin'])->name('ViewCensusAdmin');

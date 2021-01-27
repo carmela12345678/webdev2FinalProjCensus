@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\CensusRecord;
+use App\Models\Record;
 
 class CensusRecordController extends Controller
 {
@@ -16,7 +17,7 @@ class CensusRecordController extends Controller
     {
         //
         $records = CensusRecord::all();
-        return view('admin/unverifiedCensusAdmin')->with('records',$records);
+        return redirect('/unverifiedCensusAdmin')->with('records',$records);
     }
 
     /**
@@ -41,31 +42,41 @@ class CensusRecordController extends Controller
         $fname = $request->input('fname');
         $lname = $request->input('lname');
         $age = $request->input('age');
-        //$gender = $request->input('gender');
-       // $status = $request->input('status');
-       $add = $request->input('add');
-       $dateOfBirth = $request->input('dateOfBirth');
-       $educational = $request->input('educational');
-       $role = $request->input('role');
-       $sourceOfIncome = $request->input('sourceOfIncome');
+        $gender = $request->input('gender');
+        $status = $request->input('status');
+        $add = $request->input('add');
+        $dateOfBirth = $request->input('dateOfBirth');
+        $educational = $request->input('educational');
+        $role = $request->input('role');
+        $sourceOfIncome = $request->input('sourceOfIncome');
+        $recordId = $request->input('record');
        
+        if( $recordId == 0){
+            $record = new Record;
+            $record->record_status = "unverified";
+            $record->user_id = 1;
 
-       $censusRec = new CensusRecord;
-       //$censusRec->foreign
-       $censusRec->firstname =$fname;
-       $censusRec->lastname =$lname;
-       $censusRec->age =$age;
-       $censusRec->gender =$gender;
-       $censusRec->civil_status =$status;
-       $censusRec->address =$add;
-       $censusRec->birth_date =$dateOfBirth;
-       $censusRec->education =$educational;
-       $censusRec->role =$role;
-       $censusRec->sourceOfIncome =$sourceOfIncome;
+            $record->save();
+            $recordId = $record->Id;
+        }
 
-       $censusRec->save();
+        $censusRec = new CensusRecord;
+        //$censusRec->foreign
+        $censusRec->record_id = $recordId;
+        $censusRec->firstname = $fname;
+        $censusRec->lastname = $lname;
+        $censusRec->age = $age;
+        $censusRec->gender = $gender;
+        $censusRec->civil_status = $status;
+        $censusRec->address = $add;
+        $censusRec->birth_date = $dateOfBirth;
+        $censusRec->education = $educational;
+        $censusRec->role = $role;
+        $censusRec->sourceOfIncome = $sourceOfIncome;
 
-       return redirect('AddRecAdmin');
+        $censusRec->save();
+
+        return redirect('/AddRecAdmin');
     }
 
     /**

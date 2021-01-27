@@ -18,6 +18,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
 </head>
 <body>
     <div id="app">
@@ -59,7 +61,7 @@
                                 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="AddRecAdmin">Add Record</a>
-                                    <a class="dropdown-item" href="unverifiedCensusAdmin">Unverified Records</a>
+                                    <a class="dropdown-item" href="display">Unverified Records</a>
                                     <a class="dropdown-item" href="viewCensusAdmin">Verified Records</a>
                                     <a class="dropdown-item" href="userAccounts">User Accounts</a>
                                 </div>
