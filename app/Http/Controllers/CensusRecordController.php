@@ -51,18 +51,18 @@ class CensusRecordController extends Controller
         $sourceOfIncome = $request->input('sourceOfIncome');
         $recordId = $request->input('record');
        
-        if( $recordId == 0){
-            $record = new Record;
-            $record->record_status = "unverified";
-            $record->user_id = 1;
+        // if( $recordId == 0){
+        //     $record = new Record;
+        //     $record->record_status = "unverified";
+        //     $record->user_id = 1;
 
-            $record->save();
-            $recordId = $record->Id;
-        }
+        //     $record->save();
+        //     $recordId = $record->Id;
+        // }
 
         $censusRec = new CensusRecord;
         //$censusRec->foreign
-        $censusRec->record_id = $recordId;
+        //$censusRec->record_id = $recordId;
         $censusRec->firstname = $fname;
         $censusRec->lastname = $lname;
         $censusRec->age = $age;

@@ -14,8 +14,7 @@ class CreateRecordsTable extends Migration
     public function up()
     {
         Schema::create('records', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('user_id');
+            $table->increments('id');
             $table->enum('record_status', ['verified','unverified']);
             $table->timestamps();
         });
