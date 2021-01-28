@@ -6,18 +6,23 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Unverified Census Records') }} 
+                <div class="card-header">
+                    <hr class="my-4">
+                    <h4 class="row justify-content-center">Unverified Census Records</h4>
+                    <hr class="my-4">
+                    <div align="right">
                     <form action="searchUnverified" method='GET'>
                         @csrf
                         <input type="text" name='searchUnverified' placeholder="Search Record">
-                        <input type="submit" name='searchUnverified'>
+                        <input type="submit" name='searchUnverified' class="btn-primary" placeholder="Search">
                     </form>
+                    </div>
                 </div>
                 <div class="table-responsive" style="margin-right:20px; margin-left:20px;">
                     <table class="table table-striped">
                         <thead class="thead-dark">
                             <tr>
-                            <td scope="col">Record Id</td>
+                            <td scope="col">Record No.</td>
                             <td scope="col">Family Name</td>
                             <td scope="col">Address</td>
                             </tr>
@@ -31,23 +36,28 @@
                             </div>
                         @endif
 
+                    
                         @if(!empty($records))
-                        <ul class="list-group">
-                            <li class="list-group-item active">Name</li>
                             @foreach($records as $value)
-                            <li class="list-group-item">
-                                <h4><a href="/censusRecord/{{$value['id']}}">{{$value['firstname']}}</h4>
-                                <form action="census-delete" method="POST">
-                                @csrf
-                                <input type="hidden" name="id" value="{{$value['id']}}">
-                                <input type="submit" value="Delete" class="btn-danger">
-                                </form>
-                            </li>
+                    <tr>
+                        <td>{{$value['record_id']}}</td>
+                        <td>{{$value['lname']}}, {{$value['fname']}}</td>
+                        <td>{{$value['address']}}</td>
+                        <td><a href="/censusRecord/{{$value['record_id']}}">View</td>
+                        <td>
+                            <form action="census-delete" method="POST">
+                            @csrf
+                            <input type="hidden" name="id" value="{{$value['id']}}">
+                            <input type="submit" value="Delete" class="btn-danger">
+                            </form>
+                        </td>
+                    </tr>
                             @endforeach
-                        </ul>
+
                         @endif
                     </div>
                     </tbody>
+                    </table>
                 </div>
             </div>
         </div>

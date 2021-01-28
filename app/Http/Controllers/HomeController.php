@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class HomeController extends Controller
 {
@@ -31,11 +32,6 @@ class HomeController extends Controller
         return view('admin/AddRecAdmin');
     }
 
-    public function users()
-    {
-        return view('admin/users');
-    }
-
     public function viewCensusAdmin()
     {
         return view('admin/viewCensusAdmin');
@@ -44,6 +40,12 @@ class HomeController extends Controller
     public function unverifiedCensusAdmin()
     {
         return view('admin/unverifiedCensusAdmin');
+    }
+
+    public function show()
+    {
+        $records = User::all();
+        return view('admin/users')->with('records',$records);
     }
 
 }

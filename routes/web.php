@@ -70,5 +70,5 @@ Auth::routes();
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/AddRecAdmin', [HomeController::class, 'addRecAdmin'])->name('AddRecAdmin');
 Route::get('/unverifiedCensusAdmin', [HomeController::class, 'unverifiedCensusAdmin'])->name('unverifiedCensusAdmin');
-Route::get('/userAccounts', [HomeController::class, 'users'])->name('UserAccounts');
+Route::get('/userAccounts', [HomeController::class, 'show'])->name('UserAccounts');
 Route::get('/viewCensusAdmin', [HomeController::class, 'viewCensusAdmin'])->name('ViewCensusAdmin');
