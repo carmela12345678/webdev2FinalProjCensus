@@ -61,7 +61,7 @@
                                 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="AddRecAdmin">Add Record</a>
-                                    <a class="dropdown-item" href="display">Unverified Records</a>
+                                    <a class="dropdown-item" href="unverifiedCensusAdmin">Unverified Records</a>
                                     <a class="dropdown-item" href="viewCensusAdmin">Verified Records</a>
                                     <a class="dropdown-item" href="userAccounts">User Accounts</a>
                                 </div>

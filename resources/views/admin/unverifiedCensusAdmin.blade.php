@@ -5,7 +5,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card border-info mb-3">
                 <div class="card-header">
                     <hr class="my-4">
                     <h4 class="row justify-content-center">Unverified Census Records</h4>
@@ -43,7 +43,13 @@
                         <td>{{$value['record_id']}}</td>
                         <td>{{$value['lname']}}, {{$value['fname']}}</td>
                         <td>{{$value['address']}}</td>
-                        <td><a href="/censusRecord/{{$value['record_id']}}">View</td>
+                        <td>
+                            <form action="census-view" method="POST">
+                                @csrf
+                                <input type="hidden" name="id" value="{{$value['record_id']}}">
+                                <input type="submit" value="View" class="btn-info">
+                            </form>
+                        </td>
                         <td>
                             <form action="census-delete" method="POST">
                             @csrf

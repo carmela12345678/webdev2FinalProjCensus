@@ -5,7 +5,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card border-info mb-3">
                 <div class="card-header">
                     <hr class="my-4">
                     <h4 class="row justify-content-center">Verified Census Records</h4>

@@ -62,8 +62,9 @@ Route::get('/unverifiedUser', function () {
 
 
 Route::post('new-rec', [CensusRecordController::class, 'store']);
-Route::get('/display', [CensusRecordController::class, 'index']);
+Route::post('census-view', [CensusRecordController::class, 'show']);
 Route::post('census-delete', [CensusRecordController::class, 'destroy']);
+
 
 Auth::routes();
 
@@ -72,3 +73,4 @@ Route::get('/AddRecAdmin', [HomeController::class, 'addRecAdmin'])->name('AddRec
 Route::get('/unverifiedCensusAdmin', [HomeController::class, 'unverifiedCensusAdmin'])->name('unverifiedCensusAdmin');
 Route::get('/userAccounts', [HomeController::class, 'show'])->name('UserAccounts');
 Route::get('/viewCensusAdmin', [HomeController::class, 'viewCensusAdmin'])->name('ViewCensusAdmin');
+Route::get('/censusRec', [HomeController::class, 'censusRecord'])->name('CensusRecord');
