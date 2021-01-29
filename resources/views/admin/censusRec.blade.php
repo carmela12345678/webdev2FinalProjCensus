@@ -8,7 +8,9 @@
             <div class="card border-info mb-3">
                 <div class="card-header">
                     <hr class="my-4">
-                    <h4 class="row justify-content-center">Census Record</h4>
+                    <div class="bg-info"><br>
+                    <h4 class="row justify-content-center">Census Record No.</h4><br>
+                    </div>
                     <hr class="my-4">
                     <div align="right">
                     <form action="searchUnverified" method='GET'>
@@ -17,14 +19,29 @@
                         <input type="submit" name='searchUnverified' class="btn-primary" placeholder="Search">
                     </form>
                     </div>
+                    <div align="right">
+                        <a type="button" href="/home">Add new member</a>
+                    </div>
                 </div>
                 <div class="table-responsive" style="margin-right:20px; margin-left:20px;">
                     <table class="table table-striped">
                         <thead class="thead-dark">
                             <tr>
-                            <td scope="col">Record No.</td>
-                            <td scope="col">Family Name</td>
-                            <td scope="col">Address</td>
+                            <td scope="col"><h5>Head of Household Information</h5><br>
+                            @if(!empty($records))
+                            @foreach($records as $value)
+                                @if($value['role'] == "Head")
+                                    <label for="Name">Name: {{$value['lastname']}}, {{$value['firstname']}}</label><br>
+                                    <label for="Age">Age: {{$value['age']}} years old</label><br>
+                                    <label for="Gender">Gender: {{$value['gender']}}</label><br>
+                                    <label for="status">Civil Status: {{$value['civil_status']}}</label><br>
+                                    <label for="address">Address: {{$value['address']}}</label><br>
+                                    <label for="birthdate">Birthday: {{$value['birth_date']}}</label><br>
+                                    <label for="education">Highest Educational Attainment: {{$value['education']}}</label><br>
+                                    <label for="AnnualIncome">Annual Income: {{$value['sourceOfIncome']}}</label></td>
+                                @endif
+                            @endforeach
+                            @endif
                             </tr>
                         </thead>
                         <tbody>
@@ -36,9 +53,14 @@
                             </div>
                         @endif
 
-                    
+                    <tr>
+                        <td scope="col">Record No.</td>
+                        <td scope="col">Family Name</td>
+                        <td scope="col">Address</td>
+                    <tr>
                         @if(!empty($records))
                             @foreach($records as $value)
+                            @if($value['role'] == "Member")
                     <tr>
                         <td>{{$value['record_id']}}</td>
                         <td>{{$value['lname']}}, {{$value['fname']}}</td>
@@ -58,6 +80,7 @@
                             </form>
                         </td>
                     </tr>
+                            @endif
                             @endforeach
 
                         @endif
@@ -71,5 +94,24 @@
 </div>
 
 </div>
+
+<div id="overlay" onclick="off()">
+  <div id="text">Overlay Text</div>
+</div>
+
+<div style="padding:20px">
+  <h2>Overlay with Text</h2>
+  <button onclick="on()">Turn on overlay effect</button>
+</div>
+
+<script>
+function on() {
+  document.getElementById("overlay").style.display = "block";
+}
+
+function off() {
+  document.getElementById("overlay").style.display = "none";
+}
+</script>
 
 @endsection

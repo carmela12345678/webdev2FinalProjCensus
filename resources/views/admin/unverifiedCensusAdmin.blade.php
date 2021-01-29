@@ -7,9 +7,12 @@
         <div class="col-md-8">
             <div class="card border-info mb-3">
                 <div class="card-header">
-                    <hr class="my-4">
-                    <h4 class="row justify-content-center">Unverified Census Records</h4>
-                    <hr class="my-4">
+                    <hr class="bg-info my-4">
+                    <div class="bg-info"><br>
+                    <h4 class="row justify-content-center">Unverified Census Records</h4><br>
+                    </div>
+                    <hr class="bg-info my-4">
+
                     <div align="right">
                     <form action="searchUnverified" method='GET'>
                         @csrf

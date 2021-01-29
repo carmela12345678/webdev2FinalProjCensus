@@ -88,11 +88,12 @@ class CensusRecordController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request)
     {
         //
-        $records = CensusRecord::where('record_id',$id);
-        return view('/admin/censusRec')->with('records',$records);
+        $id = $request->input('id');
+        $records = CensusRecord::all()->where('record_id',$id);
+        return view('/admin/censusRec')->with('records', $records);
     }
 
     /**
